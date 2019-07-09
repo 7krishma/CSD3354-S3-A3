@@ -11,11 +11,34 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var a = new InputNames();
-            a.Run();
+           // var a = new InputNames();
+           // a.Run();
+           //new PlayWithStacks().Run();
         }
     }
+    class Blueberry {
+       
+        public string StudentName;
+        public string StudentNumber;
+        public Blueberry link;
+    }
 
+    class Grapefruit
+    {
+        // grapefruit is the officemanager
+        Blueberry Head;
+        Blueberry Node;
+        public void Run()
+        {
+            Head = new Blueberry();
+            
+
+            Node = new Blueberry();
+            Node.StudentName = "joe";
+            Node.StudentNumber = "A101";
+            Head.link = Node;
+        }
+    }
     class InputNames
     {
         private static Queue<string> names;
