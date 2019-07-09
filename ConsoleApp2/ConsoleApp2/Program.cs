@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace ConsoleApp2
 {
     class Program
     {
@@ -13,6 +12,7 @@ namespace ConsoleApp1
         {
             var a = new InputNames();
             a.Run();
+            new PlayWithStacks().Run();
         }
     }
 
@@ -28,21 +28,22 @@ namespace ConsoleApp1
 
         public void Run()
         {
+            names = new Queue<string>();
             // how can I import a text file into a QUEUE data structure?
             // 1. get a HANDLE on the text file.
 
             // Read file using StreamReader. Reads file line by line  
 
             // string textFileName = "C:\Users\HP\Dropbox\Academic_Desk\ProgramCode\CSharpDataStructure\ConsoleApp1\ConsoleApp1";
-            var fileStream = new FileStream(@"U:\Users\735275\kp\ConsoleApp1/name.txt", FileMode.Open, FileAccess.Read);
+            var fileStream = new FileStream(@"C:\Users\HP\Dropbox\Academic_Desk\ProgramCode\CSharpDataStructure\ConsoleApp1\ConsoleApp1\names.txt", FileMode.Open, FileAccess.Read);
             using (StreamReader file = new StreamReader(fileStream))
             {
-                int counter = 0;
+
                 string ln;
 
                 while ((ln = file.ReadLine()) != null)
                 {
-                    Console.WriteLine(ln);
+                    names.Enqueue(ln);
                     counter++;
                 }
                 file.Close();
@@ -50,6 +51,7 @@ namespace ConsoleApp1
             }
         }
     }
+
     class PlayWithStacks
     {
 
